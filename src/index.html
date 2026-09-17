@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--POLICY-->
+    <title>JSONTrail — Compare JSON structures instead of lines</title>
+    <meta
+      name="description"
+      content="Compare JSON structures instead of lines. Explore changed paths and export a JSON Patch."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23535d97'/%3E%3Ctext x='32' y='44' font-size='39' text-anchor='middle' fill='white' font-family='Arial'%3EJ%3C/text%3E%3C/svg%3E"
+    />
+    <!--STYLE-->
+  </head>
+  <body>
+    <header>
+      <a href="#" class="brand"
+        ><span class="brandmark" aria-hidden="true">{}</span>JSONTrail</a
+      >
+      <nav class="nav">
+        <button class="text-button desktop" id="privacy">Local & private</button
+        ><a
+          href="https://github.com/UTokyo2026/jsontrail/blob/main/README.zh-CN.md"
+          target="_blank"
+          rel="noreferrer"
+          >中文说明</a
+        ><a
+          href="https://github.com/UTokyo2026/jsontrail"
+          target="_blank"
+          rel="noreferrer"
+          >GitHub ↗</a
+        >
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">DEVELOPERS / FOLLOW THE CHANGE</p>
+          <h1>Find the change.<br />Keep the context.</h1>
+          <p class="intro">
+            Compare JSON structures instead of lines. Explore changed paths and
+            export a JSON Patch.
+          </p>
+        </div>
+        <div class="hero-note" aria-hidden="true">
+          <strong>{}</strong><span>LOCAL BY DESIGN</span>
+        </div>
+      </section>
+      <section class="workbench" aria-label="JSONTrail workspace">
+        <div class="workbar">
+          <span>01 / YOUR WORKSPACE</span
+          ><button id="demo" class="text-button">Try an example ↗</button>
+        </div>
+        <div class="grid">
+          <div class="pane">
+            <div class="labelrow">
+              <label for="left">A / Before JSON</label
+              ><label class="file-button"
+                >Open file<input type="file" id="file-left" hidden
+              /></label>
+            </div>
+            <textarea
+              id="left"
+              spellcheck="false"
+              placeholder="Paste a / before json here…"
+            ></textarea>
+          </div>
+          <div class="pane">
+            <div class="labelrow">
+              <label for="right">B / After JSON</label
+              ><label class="file-button"
+                >Open file<input type="file" id="file-right" hidden
+              /></label>
+            </div>
+            <textarea
+              id="right"
+              spellcheck="false"
+              placeholder="Paste b / after json here…"
+            ></textarea>
+          </div>
+        </div>
+        <div class="actions">
+          <p class="hint">
+            No uploads. No account. No changes to your source files.
+          </p>
+          <div class="group">
+            <button id="run" class="primary">Compare structure →</button>
+          </div>
+        </div>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="results">
+        <div class="result-head">
+          <h2>02 / Your result</h2>
+          <div class="group">
+            <button id="export" data-export disabled>
+              Download JSON Patch ↓
+            </button>
+          </div>
+        </div>
+        <div id="stats" class="stats"></div>
+        <div id="output">
+          <div class="empty">
+            Your results will appear here.<br />Try the example to see what this
+            tool can do.
+          </div>
+        </div>
+        <h3 style="margin-top: 22px">JSON Patch / RFC 6902</h3>
+        <pre id="patch" class="output-code">[]</pre>
+      </section>
+      <section class="guide">
+        <article>
+          <h3>01 / Nested structural comparisons and escaped JSON Pointers</h3>
+          <p>
+            Review an API response or configuration change without line-order
+            noise.
+          </p>
+        </article>
+        <article>
+          <h3>02 / RFC 6902 add/remove/replace patch export</h3>
+          <p>Everything is processed inside this browser tab.</p>
+        </article>
+        <article>
+          <h3>03 / Root replacements, arrays and precision safeguards</h3>
+          <p>Take the result with you. No account or subscription required.</p>
+        </article>
+      </section>
+      <details class="details">
+        <summary>Scope, formats and limitations</summary>
+        <p>
+          Uses native JSON semantics: duplicate object keys use the last value,
+          decimals use IEEE-754 numbers, and object key order is ignored. Unsafe
+          integers and non-finite parsed numbers are rejected; encode large IDs
+          as strings. Arrays are compared by index, not semantic identity.
+          Generates add, remove and replace operations; no move optimization or
+          patch application. File imports up to 5 MiB and nesting up to 150
+          levels. Preview tables show the first 500 changes; the patch includes
+          all changes.
+        </p>
+      </details>
+    </main>
+    <footer>
+      <span>JSONTrail · A small tool for a real task.</span
+      ><span
+        ><a href="https://github.com/UTokyo2026/jsontrail">Open source</a> · MIT
+        · Works offline after download</span
+      >
+    </footer>
+    <dialog id="privacy-dialog">
+      <h2>Your data stays here.</h2>
+      <p>
+        Processing happens in this browser tab. This app has no analytics,
+        server processing, remote scripts or persistent app storage. Downloads
+        contain the data you choose to export.
+      </p>
+      <p>
+        A hosted page still exposes normal request metadata to its host.
+        Download the standalone HTML and open it offline for disconnected use.
+        Browser extensions and your device are outside the app’s control.
+      </p>
+      <button id="close-privacy">Got it</button>
+    </dialog>
+    <noscript>JavaScript is required for local processing.</noscript
+    ><!--SCRIPT-->
+  </body>
+</html>
