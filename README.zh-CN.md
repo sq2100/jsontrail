@@ -2,7 +2,7 @@
 
 按结构比较 JSON，定位字段变化并导出 JSON Patch。
 
-[在线使用](https://utokyo2026.github.io/jsontrail/) · [下载离线网页](https://github.com/UTokyo2026/jsontrail/releases/latest) · [完整英文说明](README.md)
+[在线使用](https://sq2100.com/jsontrail/) · [下载离线网页](https://github.com/sq2100/jsontrail/releases/latest) · [完整英文说明](README.md)
 
 ![演示界面](docs/demo.png)
 
